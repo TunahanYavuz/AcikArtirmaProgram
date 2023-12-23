@@ -127,7 +127,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "0"
+			"value" : "8"
 		},
 		{
 			"name" : "CMAKE_COLOR_DIAGNOSTICS",
@@ -190,7 +190,7 @@
 					"value" : "C compiler"
 				}
 			],
-			"type" : "FILEPATH",
+			"type" : "STRING",
 			"value" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/gcc.exe"
 		},
 		{

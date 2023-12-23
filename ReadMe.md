@@ -1,3 +1,32 @@
+# Açık Artırma Program
+## Program Hakkında Genel Bilgiler
+- Açık Artıma Programım Sizden Bir Ürün İsmi İsteyecektir.
+- Ürün İsminin Çok Uzun Olmamasına Dikkat Edin.
+- Daha Sonra Girdiğiniz Ürününüzün Bir Başlangıç Fiyatını Alacaktır.
+- Daha Sonrasında Gireceğinizi 0’ Dan Büyük Bütün Sayılar Başlangıç Fiyatının Üzerine Eklenecektir.
+- Girdiğiniz Her Artımın Kendine Özel Bir ID Si Olacaktır. İşin Aslı Kaç Kişinin Fiyat Artırdığını Kontrol Edebileceksiniz. Çünkü Fiyatı Son Artıran Kişi Otomatik Olarak En Yüksek Teklifi Yapan Kişi Olacaktır.
+- Açık Artırmayı Sonlandırmak İçin -1 Değeri Girmeniz Yeterli Olacaktır.
+- İşlem Sonunda Program _Price_ Fonksiyonuyla Son Fiyatı Hesaplayacaktır.
+- Bu İşlemi Girilen Tüm Fiyat Artımlarını (Başlangıç Fiyatı Dahil) Birbirleriyle Toplayarak Bulacaktır.
+- Eğer Herhangi Bir Fiyat Artımı Olmadıysa Yani Son Fiyatla Başlangıç Fiyatı Aynıysa Ürününüz Satılamamış Olacaktır.
+---
+## Structure Yapısı
+- Açık Artırma (Auction) Adında Bir *Structure* Kodumuzda Bulunmakta.
+- Bu Structure' ı *typdef* İle Tanımladığımız İçin *main* Bloğumuza Sadece Structure Adı Ve Bir Takma Ad Vererek Bir Değişken Oluşturuyoruz.
+- Bu Değişkenin İçeriğinde Yukarıda Da Bahsettiğim Ürün Adı, Teklif Numarası, Artım Miktarı Ve Son Fiyat Adında Özellikler Bulunmakta.
+- Yani Oluşturduğumuz Tek Bir Üründe Bu Bilgilerin Hepsini Kolayca Kullanabiliyoruz Ve Fonksiyonları Kullanmak İstediğimizde Tek Bir Değişken Adı Göndererek Tüm Ürün Özelliklerini Gönderebiliyoruz.
+---
+## Ekran Görüntüleri
+![BasariliSatis](https://github.com/TunahanYavuz/AcikArtirmaProgram/assets/143287857/b06e1af1-5fd0-4e27-a996-93225e4e2924)
+---
+
+---
+![BasarisizSatis](https://github.com/TunahanYavuz/AcikArtirmaProgram/assets/143287857/5d81b180-8ea8-4fc9-830a-ebabde63d56e)
+
+---
+
+## Kod İçeriği
+```
 #include <stdio.h>
 #include <locale.h>
 #include <wchar.h>
@@ -65,3 +94,4 @@ double Price(Auction *product){     //Ücreti hesapladığımız fonksiyon.
 
     return product->LastPrice;      //Ürünün fiyatını döndürüyoruz.
 }
+```
