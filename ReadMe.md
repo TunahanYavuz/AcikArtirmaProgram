@@ -30,8 +30,9 @@
 #include <stdio.h>
 #include <locale.h>
 #include <wchar.h>
+
 typedef struct {            //structure ı tanımlıyoruz ve özelliklerini giriyoruz.
-    char ProductName[40];
+    wchar_t ProductName[40];
     unsigned int BidNumber;
     double LastPrice;
     double PriceIncrease[];
@@ -42,19 +43,19 @@ void Bid(Auction *product);
 double Price(Auction *product);
 
 int main() {
-    Auction product1;
+    Auction product;
     setlocale(LC_ALL,"Turkish");        //Türkçe mesajları verebilmek için bu kodu ve wprintf fonksiyonunu kullanıyoruz.
     wprintf(L"Lütfen Ürünün Adını Giriniz\n");
-    gets(product1.ProductName);
+    wscanf(L" %ls", product.ProductName);      //Ürün adını alıyoruz.    
     wprintf(L"İşlemler Dolar ($) Üzerinden Hesaplanmaktadır\n\tLütfen Ürünün Başlangıç Fiyatını Giriniz\n");
-    scanf("%lf",&product1.PriceIncrease[0]);            //Ürünün başlangıç fiyatını alıyoruz.
-    Bid(&product1);                         //Bid fonksiyonuyla açık artırmayı başlatıyoruz.
+    scanf("%lf",&product.PriceIncrease[0]);            //Ürünün başlangıç fiyatını alıyoruz.
+    Bid(&product);                         //Bid fonksiyonuyla açık artırmayı başlatıyoruz.
 
-    if(Price(&product1)!=product1.PriceIncrease[0])   //Ürün fiyatının başlangıç fiyatından farklı olduğunu kontrol ediyoruz.
-        wprintf(L"Satın Alınan Ürün : %s\nÖdenecek Fiyat : %.2lf$\nAçık Artırmayı Kazanan Numara : %d",product1.ProductName,
-                Price(&product1),product1.BidNumber-1);
+    if(Price(&product) != product.PriceIncrease[0])   //Ürün fiyatının başlangıç fiyatından farklı olduğunu kontrol ediyoruz.
+        wprintf(L"Satın Alınan Ürün : %ls\nÖdenecek Fiyat : %.2lf$\nAçık Artırmayı Kazanan Numara : %d", product.ProductName,
+                Price(&product), product.BidNumber - 1);
     else{                                                                                                   //Price fonksiyonuyla ürünün son fiyatını hesaplıyoruz.
-        wprintf(L"Herhangi Bir Teklif Yapılmadı %s Adlı Ürün Satılamadı\n",product1.ProductName);
+        wprintf(L"Herhangi Bir Teklif Yapılmadı %s Adlı Ürün Satılamadı\n", product.ProductName);
     }
     return 0;
 }
